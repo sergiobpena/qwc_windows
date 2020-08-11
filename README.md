@@ -68,7 +68,7 @@ Engades no seguinte punto :
 ~~~
 ![Idioma fin](./arquivos/06_configuracion_idioma.PNG)
 
-2. ESPG
+2. ESPG ------ NON FUNCIONA!!!!!
 Engadir o ETRS 89 no arquivo config.json engadindo: 
 ~~~
     {
@@ -96,13 +96,16 @@ Logo :
         "url": "http://localhost/cgi-bin/qgis_mapserv.fcgi.exe?MAP=C:%5CQGServer%5Cproxecto%5Cexemplo.qgs",
         "attribution": "Sergio",
         "attributionUrl": "xxxx.xx",
+        "default":"true",
         "printScales": [80000, 40000, 20000, 10000, 8000, 6000, 4000, 2000, 1000, 500, 250, 100],
         "printResolutions": [150, 300, 600],
         "backgroundLayers": [
           {
+            "name": "base_ign"
+          },
+          {
             "name": "mapnik",
             "visibility": true
-            
           }
         ],
         "searchProviders": ["coordinates", "nominatim"],
@@ -113,26 +116,29 @@ Logo :
 ~~~
 ![Item](./arquivos/09_Items.PNG)
 
+*A imaxe e para ver onde vai encastrada a configuracion, fiate do codigo non da imaxe*
+
 Onde tes que modificar a url como segue:
 
 http://localhost/cgi-bin/qgis_mapserv.fcgi.exe?MAP=
 
 E a continuación a ruta do proxecto qgis , cambiando as barras \ por %5C
 
-- Engadino capa base NON FUNCIONA!!!!!!
+- Engadino capa base wms
 
 Os parametros saqueinos do getcapabilities do servizo : 
 
 ~~~
       {
-        "name":"PNOA",
+        "name":"base_ign",
         "type":"wms",
-        "url":"https://www.ign.es/wms-inspire/pnoa-ma?SERVICE=WMS",
-        "title":"PNOA",
+        "url":"https://www.ign.es/wms-inspire/ign-base",
         "params":{
-          "LAYERS":"OI.OrthoimageCoverage"
+          "LAYERS":"IGNBaseOrto",
+          "STYLES":"default"
         },
-        "srs": "EPSG:25829"
+        "title":"Base IGN",
+        "srs": "EPSG:3857"
       },
 ~~~
 
@@ -141,4 +147,10 @@ Logo hai que executar na consola de visual estudio na carpeta da demo como antes
 ~~~
 $ yarn run themesconfig
 ~~~
+e logo
+~~~
+$ yarn start
+~~~
 
+no navegador localhost:8081 : 
+![Funcionamento](./arquivos/11_funionmento.PNG)
