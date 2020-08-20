@@ -40,22 +40,16 @@ So lectura en mv
 - Estructura de carpetas compartidas : 
 
 ~~~
-./proxecto
+./proxecto/proxecto     proxecto qgis
 ------------------------------------
-./proxecto/servidor     confifuracion e proxecto qgis
------------------------------------------------------------
-./proxecto/qwc          cliente e servidor de servizos
------------------------------------------------------------
 ~~~
 ##### Modo Voltas
 - [Referencia](https://www.zeppelinux.es/montar-carpetas-compartidas-por-virtualbox-en-linux/)
 
-
-
-
 ### Openbox
 Por se e preciso executar algo en entorno gráfico , instalase este xestor de ventanas , logo de instalar o servidor de X
 https://wiki.debian.org/es/Openbox
+
 ### Mapeo portos
 ~~~
 host    | guest  |servizo 
@@ -66,11 +60,15 @@ host    | guest  |servizo
 ----------------------------------------------------
 8051    | 8081   | Visor modo desarrollo
 ----------------------------------------------------
+90      | 90     | Para o cliente en produccion
+----------------------------------------------------
 ~~~ 
 ### SSH
 Para manexar a maquina virtual , xa que esta o non ter escritorio completo non permite o copiar / pegar , para a execucion dos comandos podese facer dende un cliente ssh , para esto :
 #### Instalar servidor ssh na mv debian
-####Cliente ssh windows
+nano /etc/ssh/sshd_config
+
+#### Cliente ssh windows
 
 Duas opcions:
 
@@ -79,7 +77,7 @@ Duas opcions:
 ![Acceso a ssh](./arquivos/14_putty.PNG)
 
 - Bash de git (Recomendada):
-Abrir ventana de bahs git na carpeta compartida
+Abrir ventana de bash git na carpeta compartida
 
 ~~~
 $ ssh -l root localhost -p 2222
@@ -90,5 +88,11 @@ $ cat id_rsa.pub >> authorized_ke ys
 $ chmod 600 authorized_keys
 $ cp /root/.ssh/id_rsa /ruta_carpeta_compartida
 $ exit
-$ cp .id_rsa /c/Users/Sergio/.ssh/
+$ cp .id_rsa /c/Users/$USER/.ssh/
 ~~~
+## Configuracion visual studio modo remoto
+
+- Instalar complemento : 
+![Complemento vstudio](./arquivos/16_vstudiossh.PNG)
+- Configurar host : 
+

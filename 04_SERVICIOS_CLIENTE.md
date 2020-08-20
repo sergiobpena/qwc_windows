@@ -1,4 +1,4 @@
-| [INICIO](./README.md)|[ANTERIOR](./03_CLIENTE.md)          | [SEGUINTE]()  |
+| [INICIO](./README.md)|[ANTERIOR](./03_CLIENTE.md)          | [SEGUINTE](./05_FLUXO_TRABALLO.md)  |
 | ------------- |:-------------:| -----:|
 # SERVIZO CLIENTE
 
@@ -58,6 +58,14 @@ Crear arquivo de inicio
 
 /home/qgis/qwc/qwc2-server
 
+
+/etc/init/
+
+/lib/systemd/system/
+permalink_flask.service
+mapInfo_flask.service
+featureReport.service
+proxy_flask.service
 ~~~
 [Unit]
 Description=Flask proxy server

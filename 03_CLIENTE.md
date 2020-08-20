@@ -1,4 +1,4 @@
-| [INICIO](./02_APACHE.md)|[ANTERIOR](./01_CONFIG_MV.md)          | [SEGUINTE]()  |
+| [INICIO](./README.md)|[ANTERIOR](./02_APACHE.md)          | [SEGUINTE](./SERVICIOS_CLIENTE.md)  |
 | ------------- |:-------------:| -----:|
 
 # CLIENTE
@@ -67,7 +67,6 @@ No arquivo ./webpack.config.js modificar o nodo devServer e deixalo asi :
     contentBase: './',
     headers: {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, $
     }
   }
 ~~~
@@ -111,7 +110,7 @@ Logo :
 ~~~
     "items": [
       {
-        "url": "http://localhost/cgi-bin/qgis_mapserv.fcgi.exe?MAP=C:%5CQGServer%5Cproxecto%5Cexemplo.qgs",
+        "url": "http://localhost:90/cgi-bin/qgis_mapserv.fcgi",
         "attribution": "Sergio",
         "attributionUrl": "xxxx.xx",
         "default":"true",
@@ -138,9 +137,9 @@ Logo :
 
 Onde tes que modificar a url como segue:
 
-http://localhost/cgi-bin/qgis_mapserv.fcgi.exe?MAP=
+http://localhost/cgi-bin/qgis_mapserv.fcgi?MAP=
 
-E a continuación a ruta do proxecto qgis , cambiando as barras \ por %5C
+E a continuación a ruta do proxecto qgis
 
 - Engadino capa base wms
 
@@ -167,8 +166,10 @@ $ yarn run themesconfig
 ~~~
 e logo
 ~~~
-$ yarn start
+$ yarn run prod
 ~~~
+Despois de fumar varios petillos, cando acabe , executase o comando /home/qgis/actualizar_cliente.sh
 
-no navegador localhost:8081 : 
+
+no navegador localhost:90 : 
 ![Funcionamento](./arquivos/11_funionmento.PNG)
