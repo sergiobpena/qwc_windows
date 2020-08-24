@@ -7,7 +7,7 @@
 - [Node](https://nodejs.org/es/) 
 - [Yarn](https://classic.yarnpkg.com/es-ES/docs/install#windows-stable)
 - [Git](https://git-scm.com/downloads)
-- IDE (Recomendable, pero podese amañar co notepad++) [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Posta en marcha do cliente en modo desarrollo
 
@@ -85,7 +85,7 @@ Engades no seguinte punto :
 ~~~
 ![Idioma fin](./arquivos/06_configuracion_idioma.PNG)
 
-2. ESPG ------ NON FUNCIONA!!!!!
+2. ESPG 
 Engadir o ETRS 89 no arquivo config.json engadindo: 
 ~~~
     {
@@ -168,8 +168,8 @@ e logo
 ~~~
 $ yarn run prod
 ~~~
-Despois de fumar varios petillos, cando acabe , executase o comando /home/qgis/actualizar_cliente.sh
+Despois de fumar varios petillos, cando acabe , hai que copiar a carpeta prod á carpeta establecida no arquivo de configuración do virtualHost, para isto , e simplificar , executase o comando /home/qgis/actualizar_cliente.sh
 
 
-no navegador localhost:90 : 
+Para probar , no navegador localhost:90 : 
 ![Funcionamento](./arquivos/11_funionmento.PNG)

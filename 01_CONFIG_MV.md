@@ -1,4 +1,4 @@
-| [INICIO](../README.md)|          | [SEGUINTE](./02_APACHE)  |
+| [INICIO](./README.md)|          | [SEGUINTE](./02_APACHE.md   a)  |
 | ------------- |:-------------:| -----:|
 
 # MAQUINA VIRTUAL

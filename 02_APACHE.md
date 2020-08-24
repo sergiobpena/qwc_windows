@@ -28,8 +28,6 @@ $ sudo systemctl restart apache2
 ## Instalación QgisServer
 - [Referencia](https://qgis.org/es/site/forusers/alldownloads.html#debian-ubuntu)
 
-Na terminal ssh como root :
-
 ~~~
 $ apt install gnupg software-properties-common
 
@@ -53,7 +51,7 @@ Prieiro instalase o modulo headers de apache , para que as peticions do cliente 
 $ a2enmod headers
 $ service apache2 reload
 ~~~
-Configuracion dos portos
+Configuracion dos portos, engadese porto 90 na vez do 80 por defecto para non colisionar cos servidores instalados na máquina host:
 
 ~~~
 $ nano /etc/apache2/ports.conf
@@ -134,7 +132,7 @@ Hai que crear todalas carpetas que se referencian no arquivo e darlle permisos o
 ~~~
 $ chmod -R www-data:www-data /ruta
 ~~~
-Por ultimo activase os virtual host ( a primeira liña so a primeira vez que se vai isto )
+Por ultimo activase os virtual host ( a primeira liña so a primeira vez que se fai isto )
 
 ~~~
 $ a2enmod fcgid
@@ -143,6 +141,7 @@ $ apachectl configtest
 $ systemctl restart apache2
 ~~~
 ### Url Servizo 
+Con estas configuracions , as urls do servidor quedarian : 
 
 - Dende host : 
 http://localhost:90/cgi-bin/qgis_mapserv.fcgi?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
