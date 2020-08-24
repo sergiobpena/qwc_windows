@@ -1,5 +1,6 @@
 ## Requerimentos
-
+- [XAMMP](https://www.apachefriends.org/es/index.html)
+- [osgeo installer]()
 - [Node](https://nodejs.org/es/) 
 - [Yarn](https://classic.yarnpkg.com/es-ES/docs/install#windows-stable)
 - [Git](https://git-scm.com/downloads)
