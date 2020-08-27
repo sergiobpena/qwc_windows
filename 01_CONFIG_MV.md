@@ -96,3 +96,12 @@ $ cp .id_rsa /c/Users/$USER/.ssh/
 ![Complemento vstudio](./arquivos/16_vstudiossh.PNG)
 - Configurar host : 
 
+~~~
+Host 127.0.0.1
+  HostName 127.0.0.1
+  User root
+  Port 2222
+  PasswordAuthentication no
+  PreferredAuthentications publickey
+  IdentityFile C:\\Users\\$USER\\.ssh\\$RSA
+~~~
