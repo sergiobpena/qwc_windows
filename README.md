@@ -5,6 +5,97 @@
 - [Yarn](https://classic.yarnpkg.com/es-ES/docs/install#windows-stable)
 - [Git](https://git-scm.com/downloads)
 - IDE (Recomendable, pero podese amañar co notepad++) [Visual Studio Code](https://code.visualstudio.com/)
+## Configuracion apache 
+- Descarga apache [Enlace](https://httpd.apache.org/docs/2.4/platform/windows.html)
+- Descarga modulo fcgid [Enlace](http://www.apachelounge.com/download/VC15/modules/mod_fcgid-2.3.9-win64-VC15.zip)
+
+1. Descomprimir o zip de apache en c:\\
+2. Modificar c:\Apache24\conf\httpd.conf , atopando e modificando o seguinte:
+~~~
+ServerName 127.0.0.1:88
+
+Listen 88
+~~~
+2. Descomentar ou engadir o que corresponda : 
+~~~
+LoadModule actions_module modules/mod_actions.so
+
+LoadModule deflate_module modules/mod_deflate.so
+
+LoadModule expires_module modules/mod_expires.so
+
+LoadModule ext_filter_module modules/mod_ext_filter.so
+
+LoadModule fcgid_module modules/mod_fcgid.so
+
+LoadModule headers_module modules/mod_headers.so
+
+LoadModule ident_module modules/mod_ident.so
+
+LoadModule rewrite_module modules/mod_rewrite.so
+
+LoadModule ssl_module modules/mod_ssl.so
+
+LoadModule cache_module modules/mod_cache.so
+
+LoadModule cache_disk_module modules/mod_cache_disk.so
+
+LoadModule proxy_module modules/mod_proxy.so
+
+LoadModule proxy_connect_module modules/mod_proxy_connect.so
+
+LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+
+LoadModule proxy_http_module modules/mod_proxy_http.so
+~~~
+4. Engadir o final do arquivo :
+
+~~~
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\\.0[678] no-gzip
+BrowserMatch \\bMSIE !no-gzip !gzip-only-text/html
+SetEnvIfNoCase Reuqest_URI \\.(?:gif|jpe?g|png|rar|zip)$ no-gzip dont-vary
+Header append Vary User-Agent env=!dont-vary
+</IfModule>
+~~~
+
+AddHandler cgi-script .cgi .pl .asp .exe
+
+5. Editar o virtualHost para o acceso a qgisserver
+Descomentar linea
+
+Include conf/extra/httpd-vhosts.conf
+
+
+
+\Apache\Conf\extra\httpd-vhosts.conf 
+~~~
+<VirtualHost *:80>
+  ServerName 127.0.0.1
+Alias /qgis/ "C:/OSGeo4W64/apps/qgis-ltr/bin/"
+<Directory "C:/OSGeo4W64/apps/qgis-ltr/bin/">
+    SetHandler fcgid-script
+    Options +ExecCGI
+    AllowOverride All
+    Require all granted
+</Directory>
+</VirtualHost>
+~~~
+
+
+httpd.exe -k install
+
+ httpd.exe -k restart, httpd.exe -k shutdown
+
+Documentacion
+
+https://opengislab.com/blog/2018/7/7/updated-installing-apache-qgis-server-and-lizmap-on-windows-os
+
+
+https://docs.qgis.org/3.10/en/docs/user_manual/working_with_ogc/server/getting_started.html#installation-on-windows
+
 
 ## Posta en marcha do cliente en modo desarrollo
 
