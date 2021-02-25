@@ -86,9 +86,9 @@ $ ssh-keygen -t rsa
 $ cd /root/.ssh/
 $ cat id_rsa.pub >> authorized_ke ys
 $ chmod 600 authorized_keys
-$ cp /root/.ssh/id_rsa /ruta_carpeta_compartida
+
 $ exit
-$ cp .id_rsa /c/Users/$USER/.ssh/
+$ scp -P 2222 root@localhost /root/.ssh/.id_rsa /c/Users/$USER/.ssh/
 ~~~
 ## Configuracion visual studio modo remoto
 
